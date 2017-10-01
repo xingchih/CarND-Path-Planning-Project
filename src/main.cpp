@@ -168,6 +168,7 @@ const double LANE_WIDTH = 4.0; // lane width is 4 meters
 const double UPDATE_PERIOD = 0.02;
 const double SAFE_S_GAP = 30.0; // safe s gap is 30 meters
 const double WP_SPACING = 30.0;
+const size_t WP_NUM = 50;
 
 double ref_vel = 0.0;
 // XH start in lane 1
@@ -376,6 +377,7 @@ int main() {
             {
               ref_vel += VEL_STEP;
             } 
+            
             // XH: create a list of widely spaced (x,y) waypoints, evenly spaced at 30m
             // later we will interpoltate these waypoints with a spline and fill it in with more points that control speed
             vector<double> ptsx;
@@ -448,10 +450,9 @@ int main() {
             // set (x,y) points to the spline
             s.set_points(ptsx, ptsy);
 
-            const size_t WP_NUM = 50;
+            // next x and y values to send to the simulator
             vector<double> next_x_vals;
             vector<double> next_y_vals;
-
             // define the actual (x,y) points we wil use for the planner
             for(size_t i = 0; i < previous_path_x.size(); i++)
             {
