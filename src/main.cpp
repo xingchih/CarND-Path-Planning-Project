@@ -356,42 +356,6 @@ int main() {
               {
                 lane_open_r = lane_open_r && isLaneOpen(sensor_fusion[i], lane_num + 1, car_s, prev_size);
               }
-              //   // car is in my lane
-              // float d = sensor_fusion[i][6]; // 6th element is d 
-              // float safe_d_in_lane_width = 0.5;
-
-              // // XH if the car is in our lane
-              // if(d < LANE_WIDTH*(0.5 + lane_num + safe_d_in_lane_width)
-              //   && d > LANE_WIDTH*(0.5 + lane_num - safe_d_in_lane_width))
-              // {
-              //   double vx = sensor_fusion[i][3]; 
-              //   double vy = sensor_fusion[i][4];
-              //   double check_speed = sqrt(vx*vx + vy*vy);
-              //   double check_car_s = sensor_fusion[i][5]; // 5th element is s
-
-              //   // if we are using previous path points
-              //   // for the other car, project s value outwards
-              //   check_car_s += ( (double)prev_size * UPDATE_PERIOD * check_speed);
-               
-
-              //   // check s values greater than mine and s gap
-              //   if( (check_car_s > car_s) 
-              //     && (check_car_s - car_s) < SAFE_S_GAP)
-              //   {
-              //     // Do some logic here, lowere reference velocity so we don't crash into the car 
-              //     // also flag to try to change lanes
-              //     // ref_vel = 29.5 * 1600.0/3600.0;
-              //     // ref_vel = check_speed;
-              //     too_close = true;
-
-              //     if(lane_num > 0)
-              //     {
-              //       lane_num = 0;
-              //     }
-              //   }
-
-              // } // if car is in our lane
-
             } // for sensor_fusion.size()
 
             if(too_close_m)
