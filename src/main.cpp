@@ -232,7 +232,7 @@ bool isLaneOpen(vector<double> sensed_car, int lane, double car_s, int prev_size
 
     // check s values greater than mine and s gap
     if( ((check_car_s > car_s) && ((check_car_s - car_s) < SAFE_S_GAP))
-      || ((check_car_s < car_s) && ((car_s - check_car_s) < SAFE_S_GAP/3.0))
+      || ((check_car_s < car_s) && ((car_s - check_car_s) < SAFE_S_GAP))
       )
     if((abs(check_car_s - car_s) < SAFE_S_GAP))
     {
